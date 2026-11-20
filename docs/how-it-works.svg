@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 400" width="1240" height="400" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#1e1e1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="1240" height="400" fill="#ffffff"/>
+<rect x="40" y="60" width="230" height="90" rx="12" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="155.0" y="100.5" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">MX Master 3S</text>
+<text x="155.0" y="123.2" font-size="14" fill="#495057" text-anchor="middle">mouse</text>
+<rect x="40" y="250" width="230" height="90" rx="12" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="155.0" y="290.6" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">Bose QC Ultra</text>
+<text x="155.0" y="313.1" font-size="14" fill="#495057" text-anchor="middle">headphones</text>
+<rect x="520" y="130" width="220" height="140" rx="12" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="630.0" y="178.1" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">Juice</text>
+<text x="630.0" y="200.7" font-size="14" fill="#495057" text-anchor="middle">asks each device for its</text>
+<text x="630.0" y="218.2" font-size="14" fill="#495057" text-anchor="middle">battery level and</text>
+<text x="630.0" y="235.7" font-size="14" fill="#495057" text-anchor="middle">remembers the answer</text>
+<rect x="960" y="40" width="240" height="80" rx="12" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1080.0" y="75.5" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">Menu bar</text>
+<text x="1080.0" y="98.2" font-size="14" fill="#495057" text-anchor="middle">one icon and % per device</text>
+<rect x="960" y="160" width="240" height="80" rx="12" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1080.0" y="195.6" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">Dropdown</text>
+<text x="1080.0" y="218.2" font-size="14" fill="#495057" text-anchor="middle">names, levels, charging</text>
+<rect x="960" y="280" width="240" height="80" rx="12" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1080.0" y="315.6" font-size="18" fill="#1e1e1e" font-weight="600" text-anchor="middle">Notification</text>
+<text x="1080.0" y="338.1" font-size="14" fill="#495057" text-anchor="middle">once at 20% or below</text>
+<line x1="270" y1="105" x2="518" y2="170" stroke="#1e1e1e" stroke-width="2" marker-end="url(#head)"/>
+<text x="395.0" y="85.7" font-size="14" fill="#1e1e1e" text-anchor="middle">Bluetooth LE</text>
+<text x="395.0" y="103.2" font-size="14" fill="#1e1e1e" text-anchor="middle">battery service</text>
+<line x1="270" y1="295" x2="518" y2="232" stroke="#1e1e1e" stroke-width="2" marker-end="url(#head)"/>
+<text x="395.0" y="303.6" font-size="14" fill="#1e1e1e" text-anchor="middle">Bose app protocol</text>
+<text x="395.0" y="321.1" font-size="14" fill="#1e1e1e" text-anchor="middle">over Bluetooth serial</text>
+<line x1="740" y1="170" x2="958" y2="82" stroke="#1e1e1e" stroke-width="2" marker-end="url(#head)"/>
+<line x1="740" y1="200" x2="958" y2="200" stroke="#1e1e1e" stroke-width="2" marker-end="url(#head)"/>
+<line x1="740" y1="232" x2="958" y2="318" stroke="#1e1e1e" stroke-width="2" marker-end="url(#head)"/>
+</svg>

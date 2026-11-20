@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Not sandboxed: a personal menu bar tool, distributed outside the Mac App Store.
+	     Hardened runtime needs no entitlement for IOBluetooth; Info.plist carries the
+	     Bluetooth usage string that TCC shows. -->
+</dict>
+</plist>
