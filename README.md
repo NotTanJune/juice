@@ -6,8 +6,8 @@ Battery levels for a Logitech MX Master 3S mouse and Bose QuietComfort Ultra hea
 
 ## What you get
 
-- **Menu bar:** each connected device gets its own item with an icon and a percentage. When a device disconnects, its item fades out. When it reconnects, the item fades back in.
-- **Dropdown:** click either item to see both devices, their levels, and whether they are charging.
+- **Menu bar:** one item shows an icon and a percentage for each connected device. When a device disconnects, its part fades out and the item closes up. When it reconnects, the item opens and the part fades back in.
+- **Dropdown:** click the item to see both devices, their levels, and whether they are charging.
 - **Low battery alert:** one notification when a device reaches 20%. The alert can fire again once the device has charged past 25%.
 
 ## Install
@@ -43,7 +43,7 @@ defaults delete ai.pivotstudio.juice headphonesAddress
 
 **Headphones.** macOS does not report the Bose battery anywhere, so Juice asks the headphones itself. It uses the same protocol as the Bose app (called BMAP) over a Bluetooth serial connection, and asks again every 2 minutes. The message format comes from the open-source [bosectl](https://github.com/aaronsb/bosectl) project.
 
-**Disconnects.** A device going away is normal, not an error. Its item leaves the menu bar and Juice waits. Juice notices the headphones return when they show up as an audio device, and connects a second later. If that connection fails, Juice retries after 2 seconds and doubles the wait each time, up to 5 minutes.
+**Disconnects.** A device going away is normal, not an error. It leaves the menu bar and Juice waits. Juice notices the headphones return when they show up as an audio device, and connects a second later. If that connection fails, Juice retries after 2 seconds and doubles the wait each time, up to 5 minutes.
 
 Juice only talks to the headphones while they are already connected to this Mac, so it never pulls them away from your phone.
 
@@ -61,6 +61,10 @@ To see each step of the headphones connection:
 JUICE_TRACE=1 ~/Library/Caches/JuiceBuild/Juice.app/Contents/MacOS/Juice --probe
 ```
 
+## Limitations
+
+- **Second display.** With more than one display, only the menu bar on the display you are working on shows the smooth fade. On the other displays macOS draws its own copy of the item, and that copy changes in steps.
+
 ## For developers
 
 ```sh
@@ -73,6 +77,6 @@ Build output goes to `~/Library/Caches/JuiceBuild`. The source of the diagram is
 
 Three things about macOS shaped the code:
 
-- **macOS animates the menu bar itself.** It fades a menu bar item in or out and slides its neighbours whenever the item is inserted, removed, or resized. Juice only inserts or removes each device's item and leaves the animation to macOS. Animating the item by hand fights the system animation and stutters.
+- **macOS animates the menu bar itself.** When a menu bar item changes width, macOS slides the item's content from its old left edge to its new one. Changing the width more than once per transition restarts that slide and stutters. Juice therefore fades a device out at a fixed width with Core Animation, changes the width once, and lets macOS do the slide. The mouse sits on the left, so when it comes or goes the whole item fades out, resizes, and fades back in; otherwise the headphones would jump sideways.
 - **macOS can report the headphones as disconnected when they are not.** On macOS 27.2, listing paired Bluetooth devices makes the system report these headphones as disconnected for the rest of that process. Juice instead treats them as connected while they appear as an audio device, and looks up their Bluetooth address in a separate short-lived process (`Juice --resolve-address <name>`).
 - **macOS loses track of the mouse.** It lists the mouse as a power source but drops it from that list for long stretches while the mouse stays connected. Juice uses that list only for the charging flag.

@@ -51,7 +51,7 @@ final class BatteryStore {
     }
 
     /// Debug builds only: posting the distributed notification
-    /// `ai.pivotstudio.juice.debug.toggleMouse` hides or shows the mouse badge so menu bar
+    /// `ai.pivotstudio.juice.debug.toggleMouse` (or `toggleHeadphones`) hides or shows that badge so menu bar
     /// transitions can be recorded without switching the mouse off.
     private var debugHidden: Set<DeviceReading.Kind> = []
 
@@ -88,12 +88,14 @@ final class BatteryStore {
 
     func start(notify: Bool = true) {
         #if DEBUG
-        DistributedNotificationCenter.default().addObserver(
-            forName: Notification.Name("ai.pivotstudio.juice.debug.toggleMouse"), object: nil, queue: .main
-        ) { [weak self] _ in
-            MainActor.assumeIsolated {
-                guard let self else { return }
-                if self.debugHidden.contains(.mouse) { self.debugHidden.remove(.mouse) } else { self.debugHidden.insert(.mouse) }
+        for (name, kind) in [("toggleMouse", DeviceReading.Kind.mouse), ("toggleHeadphones", .headphones)] {
+            DistributedNotificationCenter.default().addObserver(
+                forName: Notification.Name("ai.pivotstudio.juice.debug.\(name)"), object: nil, queue: .main
+            ) { [weak self] _ in
+                MainActor.assumeIsolated {
+                    guard let self else { return }
+                    if self.debugHidden.contains(kind) { self.debugHidden.remove(kind) } else { self.debugHidden.insert(kind) }
+                }
             }
         }
         #endif
